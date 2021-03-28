@@ -1,0 +1,33 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  --orange: #ffa067;
+  --purple: #5843be;
+  --red: #f9485d;
+  --darkColor: #222;
+  --whiteColor: #fff;
+  --borderRadius50: 50%;
+  --borderRadius08: 8px;
+  --border: 0.5px solid lightgrey;
+  --mainGradient: linear-gradient(to right, #5843be, #497de4);
+}
+
+.app-container {
+  display: grid;
+  grid-template-columns: 70px auto 30%;
+  grid-gap: 0.5rem;
+  background-color: #f5f8ff;
+  font-family: 'Roboto', sans-serif;
+  padding-right: 0.5rem;
+  min-height: 100vh;
+}
+
+.post-body {
+  font-weight: 100;
+}
+.post-title {
+  font-weight: 500;
+}

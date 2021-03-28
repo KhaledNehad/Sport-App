@@ -1,0 +1,5 @@
+.top-post-card {
+  background: #fff;
+  border-radius: var(--borderRadius08);
+  padding: 1rem;
+}

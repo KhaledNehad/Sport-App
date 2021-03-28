@@ -1,0 +1,72 @@
+.Match-item {
+  display: flex;
+  justify-content: space-between;
+  color: #92a7c3;
+  background: #f5f8ff;
+  padding: 1rem;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  margin-bottom: 0.5rem;
+}
+.match-info {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.live {
+  background: var(--red);
+  color: #fff;
+  padding: 2px 12px;
+  font-size: 0.8em;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  align-self: center;
+  margin-bottom: 3px;
+}
+.date-time {
+  color: var(--darkColor);
+  margin-bottom: 3px;
+}
+.no-score {
+  color: var(--red);
+}
+.league-info {
+  font-size: 0.8em;
+  color: #92a7c3;
+  align-self: center;
+  font-weight: 300;
+}
+
+.home-team,
+.away-team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 300;
+  font-size: 0.8rem;
+}
+.away-team__logo,
+.home-team__logo {
+  background: var(--whiteColor);
+  border-radius: var(--borderRadius50);
+  height: 30px;
+  width: 30px;
+  padding: 1.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #eee;
+  margin-bottom: 3px;
+}
+.away-team img,
+.home-team img {
+  max-width: 25px;
+  max-height: 25px;
+  background: #fff;
+}
