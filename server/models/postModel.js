@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const postSchema = mongoose.Schema({
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'users',
+  },
   title: {
     type: String,
     required: true,
@@ -13,29 +17,40 @@ const postSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  numberOfLikes: {
-    type: Number,
-    default: 0,
-  },
-  numberOfComments: {
-    type: Number,
-    default: 0,
-  },
-  creator: {
-    username: {
-      type: String,
+  likes: [
+    {
+      user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'users',
+      },
     },
-    profilePic: {
-      type: String,
+  ],
+  comments: [
+    {
+      user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'users',
+      },
+      text: {
+        type: String,
+        required: true,
+      },
+      name: {
+        type: String,
+      },
+      avatar: {
+        type: String,
+      },
+      date: {
+        type: Date,
+        default: Date.now,
+      },
     },
-    isAdmin: {
-      type: Boolean,
-      default: false,
-    },
-    date: {
-      type: Date,
-      default: Date.now,
-    },
+  ],
+
+  date: {
+    type: Date,
+    default: Date.now,
   },
 });
 
