@@ -1,0 +1,50 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: 100vh;
+}
+.login-img {
+  background-color: var(--purple);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login-form form {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+.form-input {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem 0;
+}
+.login-form form label {
+  font-weight: 600;
+}
+.login-form form input {
+  padding: 1rem;
+  border: 1px solid lightgray;
+}
+
+.login-form form button {
+  padding: 1rem;
+  border: 0;
+  background-color: var(--purple);
+  color: var(--whiteColor);
+  font-size: 1em;
+  font-weight: 600;
+  margin: 1rem 0;
+  /* border-radius: var(--borderRadius08); */
+}
+.login-form a,
+.login-form a:visited {
+  color: var(--purple);
+}
+.login-form a:hover {
+  color: blueviolet;
+}

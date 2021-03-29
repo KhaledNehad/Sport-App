@@ -2,8 +2,8 @@ const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 
-const authRoute = require('./routes/authRoute');
-const postRoute = require('./routes/postRoute');
+const authRoute = require('./routes/api/authRoute');
+const postRoute = require('./routes/api/postRoute');
 
 dotenv.config();
 
@@ -19,7 +19,7 @@ app.use(express.json());
 
 // Route Middleware
 app.use('/api/user', authRoute);
-app.use('/api/', postRoute);
+app.use('/api/posts', postRoute);
 
 const PORT = process.env.PORT;
 app.listen(
