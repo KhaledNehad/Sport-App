@@ -1,10 +1,6 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const postSchema = mongoose.Schema({
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'users',
-  },
   title: {
     type: String,
     required: true,
@@ -13,45 +9,22 @@ const postSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  creator: {
+    type: String,
+  },
   image: {
     type: String,
-    required: true,
   },
-  likes: [
-    {
-      user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'users',
-      },
-    },
-  ],
-  comments: [
-    {
-      user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'users',
-      },
-      text: {
-        type: String,
-        required: true,
-      },
-      name: {
-        type: String,
-      },
-      avatar: {
-        type: String,
-      },
-      date: {
-        type: Date,
-        default: Date.now,
-      },
-    },
-  ],
-
-  date: {
+  selectedFile: { type: String },
+  likes: {
+    type: Number,
+    default: 0,
+  },
+  createdAt: {
     type: Date,
     default: Date.now,
   },
 });
 
-module.exports = Post = mongoose.model('Post', postSchema);
+const Post = mongoose.model('Post', postSchema);
+export default Post;

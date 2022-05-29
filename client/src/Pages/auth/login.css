@@ -23,13 +23,6 @@
   flex-direction: column;
   margin: 0.5rem 0;
 }
-.login-form form label {
-  font-weight: 600;
-}
-.login-form form input {
-  padding: 1rem;
-  border: 1px solid lightgray;
-}
 
 .login-form form button {
   padding: 1rem;
@@ -41,6 +34,10 @@
   margin: 1rem 0;
   /* border-radius: var(--borderRadius08); */
 }
+.login-form form button:hover {
+  background-color: rgb(109, 69, 204);
+}
+
 .login-form a,
 .login-form a:visited {
   color: var(--purple);

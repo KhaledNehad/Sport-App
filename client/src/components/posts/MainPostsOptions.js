@@ -1,14 +1,7 @@
-import React from 'react';
-import AddIcon from '@material-ui/icons/Add';
+import AddForm from './../Form/AddForm';
 
 const MainPostsOptions = () => {
-  return (
-    <div className='post-options'>
-      <button className='btn btn-primary add-post-btn'>
-        <AddIcon fontSize='small' /> Add
-      </button>
-    </div>
-  );
+  return <AddForm />;
 };
 
 export default MainPostsOptions;

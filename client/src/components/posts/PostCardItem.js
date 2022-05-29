@@ -1,40 +1,102 @@
-import React from 'react';
-import ThumbUpAltRoundedIcon from '@material-ui/icons/ThumbUpAltRounded';
-import QuestionAnswerRoundedIcon from '@material-ui/icons/QuestionAnswerRounded';
+import React, { useState } from 'react';
+
+import {
+  Card,
+  CardHeader,
+  CardMedia,
+  CardContent,
+  CardActions,
+  Avatar,
+  IconButton,
+  Typography,
+  Link,
+  Menu,
+  MenuItem,
+} from '@material-ui/core';
+import {
+  ThumbUpAltRounded,
+  QuestionAnswerRounded,
+  Delete,
+  MoreHoriz,
+} from '@material-ui/icons';
+
+import MoreVertIcon from '@material-ui/icons/MoreVert';
+
+import Moment from 'react-moment';
 
 const PostCardItem = ({ post }) => {
+  const [showMenu, setShowMenu] = useState(null);
+
+  const handleClick = (event) => {
+    setShowMenu(event.currentTarget);
+    console.log(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setShowMenu(null);
+    console.log('closed');
+  };
   return (
-    <div className='post-card'>
-      <div className='card-thumbnail'>
-        <img src={post.image} alt={post.title} />
-      </div>
-      <div className='card-header'>
-        <h3>{post.title}</h3>
-        <span className='card-date'>{post.date}</span>
-      </div>
-      <div className='card-body'>
-        <p>{post.body}</p>
-      </div>
-      <div className='card-footer'>
-        <div className='creator-info'>
-          <img src={post.creator.profilePic} alt='' />
-          <h5>
-            {post.creator.username}
-            <br />
-            <span className='role'>{post.creator.role}</span>
-          </h5>
-        </div>
-        <div className='post-actions'>
-          <span className='likes'>
-            {post.numberOfLikes} <ThumbUpAltRoundedIcon fontSize='small' />
-          </span>
-          <span className='comments'>
-            {post.numberOfComments}
-            <QuestionAnswerRoundedIcon fontSize='small' />
-          </span>
-        </div>
-      </div>
-    </div>
+    <>
+      <Card>
+        <CardMedia
+          component={() => (
+            <img alt='' src={post.selectedFile} className='card-thumbnail' />
+          )}
+        />
+        <CardHeader
+          avatar={
+            <Avatar aria-label='recipe'>{`${post.title}`.charAt(0)}</Avatar>
+          }
+          action={
+            <IconButton
+              aria-label='settings'
+              aria-haspopup='true'
+              onClick={handleClick}
+            >
+              <MoreVertIcon />
+
+              <Menu
+                id='simple-menu'
+                anchorEl={showMenu}
+                keepMounted
+                open={Boolean(showMenu)}
+                onClose={handleClose}
+              >
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>Logout</MenuItem>
+              </Menu>
+            </IconButton>
+          }
+          title={<Link to='/#'>{post.title}</Link>}
+          subheader={
+            <Moment className='card-date' fromNow>
+              {post.createdAt}
+            </Moment>
+          }
+        />
+        <CardContent>
+          <Typography variant='body2' color='textSecondary' component='p'>
+            {/* {`${post.body}.split(' ')`.slice(0, 150)}... */}
+            {post.body.length > 150
+              ? post.body.slice(0, 150) + '...'
+              : post.body}
+          </Typography>
+        </CardContent>
+
+        <CardActions disableSpacing>
+          {/* <Typography variant='subtitle2'>{post.likes}</Typography> */}
+
+          <IconButton aria-label='like post'>
+            <ThumbUpAltRounded fontSize='small' />
+          </IconButton>
+          <IconButton aria-label='like post'>
+            <QuestionAnswerRounded fontSize='small' />
+          </IconButton>
+        </CardActions>
+      </Card>
+    </>
   );
 };
 
